@@ -1,9 +1,121 @@
-<html>
-    <head>
-        <title>small tiny landing for now</title>
-    </head>
-    <body>
-        <h1>Welcome to My Landing Page</h1>
-        <p>This is a placeholder for now.</p>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Egex - Easy Regex</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Regex Builder</h1>
+      <div class="right">
+        <button class="btn" id="presetBtn">Presets</button>
+        <button class="btn" id="shareBtn">Share</button>
+        <button class="btn danger" id="resetBtn">Reset</button>
+        <button class="btn primary" id="addBtn">Add rule</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="ph">
+          <strong>Builder</strong>
+          <div class="row">
+            <span class="small">Mode</span>
+            <select id="mode">
+              <option value="build">Build</option>
+              <option value="raw">Raw</option>
+            </select>
+          </div>
+        </div>
+        <div class="pb">
+          <div class="row space">
+            <div class="row">
+              <span class="small">Flags</span>
+              <label class="inlineCheck"><span class="mono">g</span><input type="checkbox" id="fg" checked></label>
+              <label class="inlineCheck"><span class="mono">i</span><input type="checkbox" id="fi"></label>
+              <label class="inlineCheck"><span class="mono">m</span><input type="checkbox" id="fm"></label>
+              <label class="inlineCheck"><span class="mono">s</span><input type="checkbox" id="fs"></label>
+              <label class="inlineCheck"><span class="mono">u</span><input type="checkbox" id="fu" checked></label>
+            </div>
+
+            <div class="row">
+              <button class="btn" id="copyRegexBtn">Copy da regex</button>
+              <button class="btn" id="copyPatBtn">Copy da pattern</button>
+            </div>
+          </div>
+
+          <div class="regexBox">
+            <div class="regexLine">
+              <div class="value mono" id="regexOut">/(?:)/gu</div>
+              <div class="pill" id="status">…</div>
+            </div>
+            <div class="small mono" id="flagsOut">flags: g u</div>
+          </div>
+
+          <div id="rawWrap" style="display:none; margin-top:10px;">
+            <div class="small">Raw pattern (no surrounding slashes):</div>
+            <input id="raw" class="mono" type="text" placeholder="e.g. ^\\w+@\\w+\\.\\w+$" style="width:100%;" />
+          </div>
+
+          <div class="rules" id="rules"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="ph">
+          <strong>Test</strong>
+          <div class="row">
+            <button class="btn" id="runBtn">Run</button>
+            <button class="btn" id="exampleBtn">Example</button>
+          </div>
+        </div>
+        <div class="pb">
+          <textarea id="text" spellcheck="false"></textarea>
+          <div class="row space" style="margin-top:8px;">
+            <div class="row" id="matchInfo">
+              <span class="pill">No regex..</span>
+            </div>
+            <label class="inlineCheck">
+              Groups
+              <input type="checkbox" id="groups">
+            </label>
+          </div>
+          <div class="preview" id="preview" style="margin-top:8px;"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="ph">
+          <strong>Explanation</strong>
+        </div>
+        <div class="pb">
+          <div class="exList" id="explain"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="ph">
+          <strong>Export</strong>
+          <div class="row">
+            <select id="lang">
+              <option value="js">JS</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+            </select>
+            <button class="btn" id="copyExportBtn">Copy export</button>
+          </div>
+        </div>
+        <div class="pb">
+          <pre id="export"></pre>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
