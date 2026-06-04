@@ -14,3 +14,5 @@ There's 3 Presets: Email, URL, YYYY-MM-DD.
 All combinations of regex are shareable by sharing the link in your address bar. Every combination of rules has a different URL. 
 
 Supports exports to Python, JS and Java too. 
+
+I'm open to PR's for Updates / Suggestions. Feel free to do so.
