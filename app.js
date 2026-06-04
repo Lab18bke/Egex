@@ -454,6 +454,8 @@
       if (ch === "*") { push("*", "Zero or more of previous."); i++; continue; }
       if (ch === "?") { push("?", "Optional (0 or 1)."); i++; continue; }
       if (ch === "|") { push("|", "OR (alternation)."); i++; continue; }
+      if (ch === "(") { push("(", "Group start."); i++; continue; }
+      if (ch === ")") { push(")", "Group end."); i++; continue; }
 
       if (ch === "[") {
         const end = findClassEnd(pattern, i);
@@ -477,7 +479,7 @@
       while (j < pattern.length && !isSpecial(pattern[j])) j++;
       const lit = pattern.slice(i, j);
       if (lit) push(lit, `Literal "${lit}".`);
-      i = j;
+      i = j > i ? j : i + 1;
 
       if (out.length > 60) break;
     }
