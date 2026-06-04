@@ -337,7 +337,7 @@
       name: "URL (basic)",
       mode: "raw",
       flags: { g: true, i: true, m: false, s: false, u: true },
-      raw: "\\bhttps?:\\/\\/[\\w.-]+(?:\\/[\\w\\-._~%!$&'()*+,;=:@\\/]*)?\\b",
+      raw: "\\bhttps?:\\/\\/[\\w.-]+(?:\\/[^\\s<>\"']*)?",
       sample: "Links:\nhttps://example.com\nhttp://sub.example.com/a/b?x=1#z\nnot: htp://wrong\n",
     },
     {
